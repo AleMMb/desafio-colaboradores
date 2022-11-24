@@ -24,37 +24,51 @@ function App() {
   return (
     <main>
       <div className='buscador'>
-        <h3>Buscador de colaboradores</h3>
+        <h2 className='h2-buscador'>Buscador de colaboradores</h2>
         <input 
-            name='input-buscador' 
+            className='input-buscador' 
             type="text" 
-            placeholder='Busca un colaborador' 
+            placeholder='Ingrese nombre a buscar' 
             onChange={(e) => { setBusqueda(e.target.value); console.log(busqueda)}} value={busqueda}
           />
 
       </div>
-      <form className='formulario'>
-            <input 
-            name='nombre-formulario' 
+      <form>
+          <label for="formulario-nombre"><b>Nombre del colaborador</b></label>
+          <input
+            name='formulario-nombre'
             type="text" 
             placeholder='Ingresa nombre' 
             onChange={(e) => { setNombre(e.target.value); }} value={nombre}
-            />
+          />
 
-
-            <input 
-            name='correo-formulario' 
+          <label for="formulario-correo"><b>Correo del colaborador</b></label>
+          <input 
+            name='formulario-correo' 
             type="text" 
             placeholder='Ingresa e-mail' 
             onChange={(e) => { setCorreo(e.target.value); }} value={correo}
-            />
-
+          />
+          
+          <div className='boton-formulario'>
             <button onClick={agragandoColaborador}>Agregar</button>
+          </div>
 
-            <div className='lista'>
-              {listaColaboradores.map( colab => <li key={colab.id}>Nombre: {colab.nombre}correo: {colab.correo} ID: {colab.id}</li>)}
-            </div>
-        </form>
+          <h3>Listado de colaboradores:</h3>
+          <div className='lista'>
+            {listaColaboradores.map(colab => <li key={colab.id}>
+                <div className='info-colaborador'>  
+                  <b>Nombre: </b>{colab.nombre}
+                </div>
+                <div className='info-colaborador'>
+                  <b>Id: </b>{colab.id}
+                </div>
+                <div className='info-colaborador'>
+                <b>Correo: </b>{colab.correo}
+                </div>
+              </li>)}
+          </div>
+      </form>
     </main>
   );
 }

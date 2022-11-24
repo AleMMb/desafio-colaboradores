@@ -1,8 +1,64 @@
 
-li{
-  list-style: none;
+.buscador{
+  background: linear-gradient(95deg, #344D67, #2a2a2b);
+  color:white;
+  display: flex;
+  justify-content:space-between;
+  padding: 15px;
 }
 
-.formulario{
-  margin: 20px;
+.h2-buscador{
+  margin: 0px;
+}
+
+.input-buscador{
+  margin: 0%;
+  border: none;
+  border-radius: 3px;
+}
+
+form{
+  margin: 30px 100px;
+  background-color: #426c9a5a;
+  border: solid 1px #344d678e;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+label{
+  margin-bottom: 10px;
+}
+
+form, input{
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 3px
+}
+
+.boton-formulario{
+  display: flex;
+  justify-content: center;
+  margin: 10px 0px 20px 0;
+}
+
+button{
+  color: bisque;
+  background-color: #344d67;
+  border: none;
+  border-radius: 2px;
+  padding: 7px 20px ;
+}
+
+li{
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+.info-colaborador{
+  width: 33%;
+  margin-bottom: 10px;
 }
