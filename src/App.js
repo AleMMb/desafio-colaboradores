@@ -11,15 +11,19 @@ function App() {
   const [colaborador, setColaborador] = useState(BaseColaboradores)
   const [busqueda, setBusqueda] = useState('')
 
-  const agragandoColaborador = (e) => {
+  const agregandoColaborador = (e) => {
     e.preventDefault();
-    setColaborador([...colaborador, { "id": colaborador.length + 1, "nombre": nombre, "correo": correo}])
-    console.log(colaborador)
-    setNombre("")
-    setCorreo("")
+   if (nombre === "" || correo === ""){
+      alert("Todos los campos son requeridos")
+    } else {
+      setColaborador([...colaborador, { "id": colaborador.length + 1, "nombre": nombre, "correo": correo}])
+      setNombre("")
+      setCorreo("")
+    }
   }
 
-  const listaColaboradores = !busqueda ? colaborador : colaborador.filter((x) => x.nombre.toLowerCase().includes(busqueda.toLocaleLowerCase()))
+
+  const listaColaboradores = !busqueda ? colaborador : colaborador.filter((e) => e.nombre.toLowerCase().includes(busqueda.toLocaleLowerCase()))
 
   return (
     <main>
@@ -34,7 +38,7 @@ function App() {
 
       </div>
       <form>
-          <label for="formulario-nombre"><b>Nombre del colaborador</b></label>
+          <label htmlFor="formulario-nombre"><b>Nombre del colaborador</b></label>
           <input
             name='formulario-nombre'
             type="text" 
@@ -42,16 +46,16 @@ function App() {
             onChange={(e) => { setNombre(e.target.value); }} value={nombre}
           />
 
-          <label for="formulario-correo"><b>Correo del colaborador</b></label>
+          <label htmlFor="formulario-correo"><b>Correo del colaborador</b></label>
           <input 
             name='formulario-correo' 
             type="text" 
             placeholder='Ingresa e-mail' 
             onChange={(e) => { setCorreo(e.target.value); }} value={correo}
           />
-          
+
           <div className='boton-formulario'>
-            <button onClick={agragandoColaborador}>Agregar</button>
+            <button onClick={agregandoColaborador}>Agregar</button>
           </div>
 
           <h3>Listado de colaboradores:</h3>
